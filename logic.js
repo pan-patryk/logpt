@@ -1,11 +1,12 @@
 const nts = (number, includes) => number.toString().includes(includes);
 const logic = data => {
-  let newData = [];
-  data.forEach(number => {
+  let newData = [];    
+  typeof data === 'number' ? data= [data] : data ;
+  data.forEach(number => {     
     if (nts(number, 5) && number % 3 === 0 && number % 5 === 0) {
       number = "lucky";
     } else if (number % 3 === 0 && number % 5 === 0) {
-      number = "fizz buzz";
+      number = "fizzbuzz";
     } else if (nts(number, 3) && number % 3 === 0) {
       number = "fizz fizz";
     } else if (nts(number, 5) && number % 5 === 0) {
@@ -15,7 +16,7 @@ const logic = data => {
     } else if (nts(number, 5) || number % 5 === 0) {
       number = "buzz";
     }
-    newData.push(number)
+    newData.push(number);
   });
   return newData;
 };
